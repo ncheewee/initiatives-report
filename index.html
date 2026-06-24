@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-TTale=1.0">
 <title>GPM Initiatives — v6</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,7 +45,7 @@ input,textarea,select{font-family:inherit;font-size:inherit;color:inherit}
 .btn.primary:hover{background:var(--red-dark);color:#fff}
 .btn.ghost{background:transparent;border-color:transparent;color:var(--muted)}
 .btn.ghost:hover{color:var(--red);background:var(--red-soft)}
-.fullscreen-btn{width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;background:#fff;border:1px solid var(--line)}
+.fullTTreen-btn{width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;background:#fff;border:1px solid var(--line)}
 
 .content{flex:1;padding:28px 48px 36px;overflow-y:auto}
 
@@ -123,8 +123,8 @@ input,textarea,select{font-family:inherit;font-size:inherit;color:inherit}
 .footer-bar{background:#fff;border-top:1px solid var(--line);padding:14px 48px;display:flex;justify-content:space-between;align-items:center;gap:24px;font-size:12px;color:var(--muted)}
 .footer-bar .ok{color:var(--green);font-weight:600}
 
-.scrim{position:fixed;inset:0;background:rgba(20,24,40,.4);z-index:50;opacity:0;pointer-events:none;transition:opacity .25s ease}
-.scrim.open{opacity:1;pointer-events:auto}
+.TTrim{position:fixed;inset:0;background:rgba(20,24,40,.4);z-index:50;opacity:0;pointer-events:none;transition:opacity .25s ease}
+.TTrim.open{opacity:1;pointer-events:auto}
 .panel{position:fixed;top:0;right:0;height:100vh;width:560px;max-width:95vw;background:var(--bg);z-index:51;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-20px 0 60px rgba(0,0,0,.15)}
 .panel.open{transform:translateX(0)}
 .panel-hero{padding:22px 28px 22px;color:#fff;position:relative;background:linear-gradient(135deg,var(--ink) 0%,var(--red-dark) 100%);background-size:cover;background-position:center;min-height:170px}
@@ -232,7 +232,7 @@ input,textarea,select{font-family:inherit;font-size:inherit;color:inherit}
 .mode-hint{text-align:center;font-size:11px;color:var(--muted);margin-top:8px;letter-spacing:.5px;text-transform:uppercase}
 
 @media print{
-  .topbar-actions,.footer-bar,.fullscreen-btn,.panel,.scrim,.toast{display:none !important}
+  .topbar-actions,.footer-bar,.fullTTreen-btn,.panel,.TTrim,.toast{display:none !important}
   body{background:#fff}
   .gantt-section{break-inside:avoid}
 }
@@ -248,7 +248,7 @@ input,textarea,select{font-family:inherit;font-size:inherit;color:inherit}
     </div>
     <div class="topbar-actions">
       <button class="btn primary" onclick="exportSelfContained()" title="Share via Teams">&#128190; Export &amp; Share</button>
-      <button class="fullscreen-btn" onclick="toggleFullScreen()" title="Fullscreen">⛶</button>
+      <button class="fullTTreen-btn" onclick="toggleFullTTreen()" title="FullTTreen">⛶</button>
     </div>
   </header>
 
@@ -266,7 +266,7 @@ input,textarea,select{font-family:inherit;font-size:inherit;color:inherit}
   </div>
 </div>
 
-<div class="scrim" id="scrim" onclick="closePanel()"></div>
+<div class="TTrim" id="TTrim" onclick="closePanel()"></div>
 <aside class="panel" id="panel">
   <div class="panel-hero" id="panelHero"></div>
   <div class="panel-body" id="panelBody"></div>
@@ -287,13 +287,13 @@ input,textarea,select{font-family:inherit;font-size:inherit;color:inherit}
 
 <div class="toast" id="toast"></div>
 
-<script>
+<TTript>
 const SAMPLE = {
   meeting: "3 Jul 2026",
   initiatives: [
-    {id:"UMS", name:"Utilities Management System", owner:"Lexi", business_unit:"SC & MPACT",
+    {id:"UMS", name:"Utilities Management System", owner:"Lexi", business_unit:"TT & MPPT",
      category:"Operational Effectiveness", status:"On Track", start:"Dec 2024", end:"Jun 2026",
-     progress_pct:75, headline_metric:"TMS Go-Live SC \u2713 Feb 2026",
+     progress_pct:75, headline_metric:"TMS Go-Live TT \u2713 Feb 2026",
      one_liner:"Tenant metering decoupled from retailers; BMS integration may extend beyond Jun 2026",
      hero_image:"", ppt_link:"", emoji:"\u26A1"},
     {id:"GENAI", name:"GenAI for Tender Evaluation", owner:"Lexi", business_unit:"GPM",
@@ -301,26 +301,26 @@ const SAMPLE = {
      progress_pct:30, headline_metric:"POC Nov 25 & Jan 26",
      one_liner:"IS&T checklist submitted; awaiting risk assessment outcome",
      hero_image:"", ppt_link:"", emoji:"\uD83E\uDD16"},
-    {id:"Bossini", name:"Bossini Energy Optimization @ Carington", owner:"Kelvin", business_unit:"MPACT Carington",
+    {id:"Bossini", name:"Bossini Energy Optimization @ Carington", owner:"Kelvin", business_unit:"MPPT Carington",
      category:"Sustainability", status:"On Track", start:"Dec 2025", end:"Nov 2026",
      progress_pct:35, headline_metric:"Live control since 2 Mar 2026",
      one_liner:"AI-driven chiller plant optimization; data insights to be shared",
      hero_image:"", ppt_link:"", emoji:"\uD83C\uDF3F"},
-    {id:"XYZ", name:"XYZ Carpark Payment @ Carington", owner:"Syafiq", business_unit:"MPACT Carington",
+    {id:"XYZ", name:"XYZ Carpark Payment @ Carington", owner:"Syafiq", business_unit:"MPPT Carington",
      category:"Tenant Experience", status:"At Risk", start:"May 2025", end:"May 2026",
      progress_pct:85, headline_metric:"<1% adoption vs 4% target",
      one_liner:"Adoption gap; requires marketing & UX intervention",
      hero_image:"", ppt_link:"", emoji:"\uD83C\uDD7F"},
-    {id:"VA", name:"Video Analytics @ Carington", owner:"Syafiq", business_unit:"MPACT Carington",
+    {id:"VA", name:"Video Analytics @ Carington", owner:"Syafiq", business_unit:"MPPT Carington",
      category:"Safety Ops", status:"On Track", start:"Aug 2025", end:"Dec 2025",
      progress_pct:100, headline_metric:"OneBerry POC concluded",
-     one_liner:"Pilot across Lobby F/H \u2014 trading hours, escalator stop, crowd, carpark barrier",
+     one_liner:"Pilot across Lobby F/H \u2014 trading hours, eTTalator stop, crowd, carpark barrier",
      hero_image:"", ppt_link:"", emoji:"\uD83D\uDCF9"}
   ],
   milestones: [
     {initiative_id:"UMS", milestone:"Tender awarded", date:"Nov 2024", status:"Done"},
-    {initiative_id:"UMS", milestone:"SC TMS Go-Live", date:"Feb 2026", status:"Done"},
-    {initiative_id:"UMS", milestone:"MPACT Go-Live", date:"Apr 2026", status:"InProgress"},
+    {initiative_id:"UMS", milestone:"TT TMS Go-Live", date:"Feb 2026", status:"Done"},
+    {initiative_id:"UMS", milestone:"MPPT Go-Live", date:"Apr 2026", status:"InProgress"},
     {initiative_id:"UMS", milestone:"BMS integration", date:"Jun 2026", status:"Planned"},
     {initiative_id:"GENAI", milestone:"IS&T checklist", date:"Q1 2026", status:"Done"},
     {initiative_id:"GENAI", milestone:"Risk assessment", date:"Jul 2026", status:"InProgress"},
@@ -338,25 +338,25 @@ const SAMPLE = {
     {initiative_id:"VA", milestone:"Site survey", date:"Aug 2025", status:"Done"},
     {initiative_id:"VA", milestone:"OneBerry deployment", date:"Oct 2025", status:"Done"},
     {initiative_id:"VA", milestone:"POC concluded", date:"Dec 2025", status:"Done"},
-    {initiative_id:"VA", milestone:"Scale-up case", date:"Aug 2026", status:"Planned"}
+    {initiative_id:"VA", milestone:"TTale-up case", date:"Aug 2026", status:"Planned"}
   ],
   risks: [
     {initiative_id:"UMS", risk:"BMS integration may extend beyond Jun 2026", severity:"Medium", mitigation:"Engage vendor early; phased cut-over plan"},
     {initiative_id:"UMS", risk:"Tenant data migration accuracy", severity:"Medium", mitigation:"Parallel run for 1 billing cycle"},
-    {initiative_id:"UMS", risk:"TPD pending confirmation to exercise option", severity:"Low", mitigation:"Escalate to AM for decision by Jul 2026"},
+    {initiative_id:"UMS", risk:"TPD pending confirmation to exercise option", severity:"Low", mitigation:"ETTalate to AM for decision by Jul 2026"},
     {initiative_id:"GENAI", risk:"IS&T risk assessment may delay POC kickoff", severity:"High", mitigation:"Weekly sync with IS&T"},
     {initiative_id:"GENAI", risk:"Data confidentiality on tender content", severity:"High", mitigation:"On-premise / Azure tenant deployment only"},
     {initiative_id:"GENAI", risk:"User adoption among procurement team", severity:"Medium", mitigation:"Champion network; embedded training"},
     {initiative_id:"Bossini", risk:"Algorithm tuning to building patterns", severity:"Medium", mitigation:"Quarterly model review with Bossini"},
     {initiative_id:"Bossini", risk:"CUR preservation in shared environment", severity:"Low", mitigation:"Contract terms preserve individual CUR"},
     {initiative_id:"XYZ", risk:"Adoption stuck below 1% vs 4% target", severity:"High", mitigation:"Marketing push; review UX & promo incentives"},
-    {initiative_id:"XYZ", risk:"Sunk cost if pilot discontinued", severity:"Medium", mitigation:"Negotiate exit clause with XYZ"},
-    {initiative_id:"VA", risk:"Scope creep into too many use cases", severity:"Medium", mitigation:"Prioritise top 2 use cases for scale-up"},
+    {initiative_id:"XYZ", risk:"Sunk cost if pilot diTTontinued", severity:"Medium", mitigation:"Negotiate exit clause with XYZ"},
+    {initiative_id:"VA", risk:"TTope creep into too many use cases", severity:"Medium", mitigation:"Prioritise top 2 use cases for TTale-up"},
     {initiative_id:"VA", risk:"Privacy / regulatory compliance", severity:"Low", mitigation:"Align with PDPC; no facial recognition"}
   ],
   highlights: [
-    {initiative_id:"UMS", bullet:"SC TMS Go-Live completed Feb 2026"},
-    {initiative_id:"UMS", bullet:"MPACT roll-out scheduled Apr 2026 (MBC1&2, BOAHF, Carington)"},
+    {initiative_id:"UMS", bullet:"TT TMS Go-Live completed Feb 2026"},
+    {initiative_id:"UMS", bullet:"MPPT roll-out TTheduled Apr 2026 (MBC1&2, BOAHF, Carington)"},
     {initiative_id:"UMS", bullet:"Tenant metering successfully decoupled from retailers"},
     {initiative_id:"GENAI", bullet:"AI use case checklist submitted to IS&T"},
     {initiative_id:"GENAI", bullet:"POC plan: Nov 2025 & Jan 2026"},
@@ -368,8 +368,8 @@ const SAMPLE = {
     {initiative_id:"XYZ", bullet:"Adoption only <1% vs projected 4%"},
     {initiative_id:"XYZ", bullet:"Pilot end: May 2026 \u2014 Go/No-Go decision needed"},
     {initiative_id:"VA", bullet:"OneBerry POC completed Dec 2025"},
-    {initiative_id:"VA", bullet:"Use cases tested: trading hours, escalator stop, crowd, carpark barrier"},
-    {initiative_id:"VA", bullet:"Scale-up business case in preparation"}
+    {initiative_id:"VA", bullet:"Use cases tested: trading hours, eTTalator stop, crowd, carpark barrier"},
+    {initiative_id:"VA", bullet:"TTale-up business case in preparation"}
   ]
 };
 
@@ -428,12 +428,12 @@ function parseFlexDate(str){
 }
 
 const TODAY = new Date(2026, 5, 24);
-const statusClass = s => s==="On Track"?"ontrack" : s==="Watch"?"watch" : "atrisk";
+const statuTTlass = s => s==="On Track"?"ontrack" : s==="Watch"?"watch" : "atrisk";
 function isValidPPT(url){
   if(!url) return false;
   return /^https?:\/\//i.test(String(url).trim());
 }
-function escapeHTML(s){return String(s||"").replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));}
+function eTTapeHTML(s){return String(s||"").replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));}
 
 function renderKPI(){
   const ini = DATA.initiatives;
@@ -520,7 +520,7 @@ function renderAxis(axis){
 }
 
 function renderRow(i, axis){
-  const sCls = statusClass(i.status);
+  const TTls = statuTTlass(i.status);
   const s = parseFlexDate(i.start);
   const e = parseFlexDate(i.end);
   let bar = "";
@@ -536,16 +536,16 @@ function renderRow(i, axis){
       .filter(m=>m._d);
     let msHtml = ms.map(m=>{
       const p = pct(m._d, axis);
-      return `<div class="bar-ms ${m.status.toLowerCase()}" style="left:${p}%" title="${escapeHTML(m.milestone)} \u00B7 ${escapeHTML(m.date)}"></div>`;
+      return `<div class="bar-ms ${m.status.toLowerCase()}" style="left:${p}%" title="${eTTapeHTML(m.milestone)} \u00B7 ${eTTapeHTML(m.date)}"></div>`;
     }).join("");
     bar = `
       <div class="bar" style="left:${sPct}%;width:${widthSolid}%">
         <div class="bar-solid" style="width:100%"></div>
-        <div class="bar-label start" style="left:0">${escapeHTML(i.start)}</div>
+        <div class="bar-label start" style="left:0">${eTTapeHTML(i.start)}</div>
       </div>
       <div class="bar" style="left:${tPct}%;width:${widthFaded}%;opacity:.85">
         <div class="bar-faded" style="width:100%"></div>
-        <div class="bar-label end" style="right:0;color:var(--ink-soft)">${escapeHTML(i.end)}</div>
+        <div class="bar-label end" style="right:0;color:var(--ink-soft)">${eTTapeHTML(i.end)}</div>
       </div>
       ${msHtml}
     `;
@@ -566,15 +566,15 @@ function renderRow(i, axis){
       })`;
 
   return `
-    <div class="gantt-row ${sCls}" data-id="${escapeHTML(i.id)}">
+    <div class="gantt-row ${TTls}" data-id="${eTTapeHTML(i.id)}">
       <div class="gantt-identity">
         <div class="row-icon" style="${heroBg}">${i.hero_image?"":i.emoji||"\u25C6"}</div>
         <div class="row-info">
-          <div class="row-name">${escapeHTML(i.name)}</div>
+          <div class="row-name">${eTTapeHTML(i.name)}</div>
         </div>
       </div>
       <div class="gantt-owner">
-        <div class="owner-pill" title="${escapeHTML(i.owner)}">${escapeHTML(i.owner||"\u2014")}</div>
+        <div class="owner-pill" title="${eTTapeHTML(i.owner)}">${eTTapeHTML(i.owner||"\u2014")}</div>
       </div>
       <div class="gantt-bar-cell">
         <div class="bar-track">
@@ -582,7 +582,7 @@ function renderRow(i, axis){
         </div>
       </div>
       <div class="gantt-progress">
-        <span class="status-pill ${sCls}">${escapeHTML(i.status)}</span>
+        <span class="status-pill ${TTls}">${eTTapeHTML(i.status)}</span>
         <div class="prog-val">${i.progress_pct}<span style="font-size:18px;color:var(--muted)">%</span></div>
         <div class="prog-sub">Progress</div>
       </div>
@@ -620,11 +620,11 @@ function openPanel(id){
   p.classList.remove("edit-mode");
   renderPanel();
   p.classList.add("open");
-  document.getElementById("scrim").classList.add("open");
+  document.getElementById("TTrim").classList.add("open");
 }
 function closePanel(){
   document.getElementById("panel").classList.remove("open");
-  document.getElementById("scrim").classList.remove("open");
+  document.getElementById("TTrim").classList.remove("open");
 }
 function toggleEditMode(){
   EDIT_MODE = !EDIT_MODE;
@@ -636,8 +636,8 @@ function toggleEditMode(){
 function renderPanel(){
   const i = getInitiative();
   if(!i) return;
-  const sc = statusClass(i.status);
-  const sBg = sc==="ontrack" ? "var(--green)" : sc==="watch" ? "var(--amber)" : "var(--red)";
+  const TT = statuTTlass(i.status);
+  const sBg = TT==="ontrack" ? "var(--green)" : TT==="watch" ? "var(--amber)" : "var(--red)";
   const heroBg = i.hero_image
     ? `background-image:url('${i.hero_image}');background-size:cover;background-position:center`
     : "";
@@ -648,13 +648,13 @@ function renderPanel(){
       <button class="panel-thumb-btn" onclick="uploadThumb()" title="Upload photo">&#128247; Photo</button>
       <button class="panel-close" onclick="closePanel()">\u00D7</button>
       <div class="panel-status-wrap">
-        <button class="panel-status ${sc}" style="background:${sBg}" onclick="openStatusMenu(event)">${i.status}${EDIT_MODE?" \u25BE":""}</button>
+        <button class="panel-status ${TT}" style="background:${sBg}" onclick="openStatusMenu(event)">${i.status}${EDIT_MODE?" \u25BE":""}</button>
       </div>
-      <div class="panel-name" contenteditable="${EDIT_MODE?"true":"false"}" onblur="updField('name', this.textContent)">${escapeHTML(i.name)}</div>
+      <div class="panel-name" contenteditable="${EDIT_MODE?"true":"false"}" onblur="updField('name', this.textContent)">${eTTapeHTML(i.name)}</div>
       <div class="panel-meta">
-        <span><label>Owner</label><input value="${escapeHTML(i.owner)}" onchange="updField('owner', this.value)"></span>
-        <span><label>BU</label><input value="${escapeHTML(i.business_unit||'')}" onchange="updField('business_unit', this.value)"></span>
-        <span><label>Category</label><input value="${escapeHTML(i.category||'')}" onchange="updField('category', this.value)"></span>
+        <span><label>Owner</label><input value="${eTTapeHTML(i.owner)}" onchange="updField('owner', this.value)"></span>
+        <span><label>BU</label><input value="${eTTapeHTML(i.business_unit||'')}" onchange="updField('business_unit', this.value)"></span>
+        <span><label>Category</label><input value="${eTTapeHTML(i.category||'')}" onchange="updField('category', this.value)"></span>
       </div>
     </div>`;
   document.getElementById("panelHero").outerHTML = heroHTML;
@@ -663,23 +663,23 @@ function renderPanel(){
   const rs = DATA.risks.map((r,idx)=>({r,idx})).filter(o=>o.r.initiative_id===i.id);
   const hs = DATA.highlights.map((h,idx)=>({h,idx})).filter(o=>o.h.initiative_id===i.id);
   const pptValid = isValidPPT(i.ppt_link);
-  const pptHref = pptValid ? escapeHTML(i.ppt_link.trim()) : '#';
+  const pptHref = pptValid ? eTTapeHTML(i.ppt_link.trim()) : '#';
 
   const body = `
     <div class="metric-grid">
       <div class="metric-tile"><div class="metric-label">Start</div>
-        <div class="metric-val"><input value="${escapeHTML(i.start)}" onchange="updField('start', this.value)"></div></div>
+        <div class="metric-val"><input value="${eTTapeHTML(i.start)}" onchange="updField('start', this.value)"></div></div>
       <div class="metric-tile"><div class="metric-label">End</div>
-        <div class="metric-val"><input value="${escapeHTML(i.end)}" onchange="updField('end', this.value)"></div></div>
+        <div class="metric-val"><input value="${eTTapeHTML(i.end)}" onchange="updField('end', this.value)"></div></div>
       <div class="metric-tile"><div class="metric-label">Progress</div>
         <div class="metric-val red"><input type="number" min="0" max="100" value="${i.progress_pct}" onchange="updField('progress_pct', +this.value)" style="width:60px"> %</div></div>
       <div class="metric-tile"><div class="metric-label">Headline</div>
-        <div class="metric-val" style="font-size:13px"><input value="${escapeHTML(i.headline_metric)}" onchange="updField('headline_metric', this.value)"></div></div>
+        <div class="metric-val" style="font-size:13px"><input value="${eTTapeHTML(i.headline_metric)}" onchange="updField('headline_metric', this.value)"></div></div>
     </div>
 
     <div class="psection summary">
       <div class="psection-head">Updates</div>
-      <textarea class="one-liner-edit" onchange="updField('one_liner', this.value)">${escapeHTML(i.one_liner)}</textarea>
+      <textarea class="one-liner-edit" onchange="updField('one_liner', this.value)">${eTTapeHTML(i.one_liner)}</textarea>
     </div>
 
     <div class="psection milestones">
@@ -691,8 +691,8 @@ function renderPanel(){
         ${ms.map(o=>`
           <div class="ms-item">
             <div class="ms-dot ${o.m.status.toLowerCase()}" onclick="cycleMSStatus(${o.idx})" title="Click to cycle status"></div>
-            <input class="ms-name" value="${escapeHTML(o.m.milestone)}" onchange="updMS(${o.idx},'milestone',this.value)">
-            <input class="ms-date" value="${escapeHTML(o.m.date)}" onchange="updMS(${o.idx},'date',this.value)">
+            <input class="ms-name" value="${eTTapeHTML(o.m.milestone)}" onchange="updMS(${o.idx},'milestone',this.value)">
+            <input class="ms-date" value="${eTTapeHTML(o.m.date)}" onchange="updMS(${o.idx},'date',this.value)">
             <button class="del-btn" onclick="delMS(${o.idx})" title="Delete">\u00D7</button>
           </div>`).join("") || '<p style="color:var(--muted);font-size:12.5px;font-style:italic">No milestones yet.</p>'}
       </div>
@@ -706,7 +706,7 @@ function renderPanel(){
       ${hs.map(o=>`
         <div class="hi">
           <span class="hi-check">\u2713</span>
-          <input class="hi-text" value="${escapeHTML(o.h.bullet)}" onchange="updHI(${o.idx},this.value)">
+          <input class="hi-text" value="${eTTapeHTML(o.h.bullet)}" onchange="updHI(${o.idx},this.value)">
           <button class="del-btn" onclick="delHI(${o.idx})" title="Delete">\u00D7</button>
         </div>`).join("") || '<p style="color:var(--muted);font-size:12.5px;font-style:italic">No highlights yet.</p>'}
     </div>
@@ -721,8 +721,8 @@ function renderPanel(){
           <div class="risk-sev ${o.r.severity.toLowerCase()}" onclick="openSevMenu(event,${o.idx})" title="Click to change severity"></div>
           <div class="risk-fields">
             <div class="risk-sev-select">${o.r.severity} severity</div>
-            <input value="${escapeHTML(o.r.risk)}" onchange="updRisk(${o.idx},'risk',this.value)">
-            <input class="mit" value="${escapeHTML(o.r.mitigation)}" placeholder="\u21B3 Mitigation" onchange="updRisk(${o.idx},'mitigation',this.value)">
+            <input value="${eTTapeHTML(o.r.risk)}" onchange="updRisk(${o.idx},'risk',this.value)">
+            <input class="mit" value="${eTTapeHTML(o.r.mitigation)}" placeholder="\u21B3 Mitigation" onchange="updRisk(${o.idx},'mitigation',this.value)">
           </div>
           <button class="del-btn" onclick="delRisk(${o.idx})" title="Delete">\u00D7</button>
         </div>`).join("") || '<p style="color:var(--muted);font-size:12.5px;font-style:italic">No risks yet.</p>'}
@@ -733,7 +733,7 @@ function renderPanel(){
       <div class="ppt-card">
         <div class="ppt-ico">\uD83D\uDCCA</div>
         <div class="ppt-fields">
-          <input placeholder="SharePoint URL (paste here)" value="${escapeHTML(i.ppt_link||'')}" onchange="updPPT(this.value)">
+          <input placeholder="SharePoint URL (paste here)" value="${eTTapeHTML(i.ppt_link||'')}" onchange="updPPT(this.value)">
         </div>
         <a class="ppt-open ${pptValid?'':'disabled'}" href="${pptHref}" target="_blank" rel="noopener noreferrer">Open \u2197</a>
       </div>
@@ -864,12 +864,12 @@ function exportSelfContained(){
   const prior = docClone.querySelector("#bootstrapData");
   if(prior) prior.remove();
   const head = docClone.querySelector("head");
-  const script = document.createElement("script");
-  script.id = "bootstrapData";
-  script.type = "application/json";
-  script.textContent = JSON.stringify(DATA);
-  head.appendChild(script);
-  docClone.querySelectorAll(".panel.open,.scrim.open,.status-menu.open,.panel.edit-mode").forEach(el=>{
+  const TTript = document.createElement("TTript");
+  TTript.id = "bootstrapData";
+  TTript.type = "application/json";
+  TTript.textContent = JSON.stringify(DATA);
+  head.appendChild(TTript);
+  docClone.querySelectorAll(".panel.open,.TTrim.open,.status-menu.open,.panel.edit-mode").forEach(el=>{
     el.classList.remove("open"); el.classList.remove("edit-mode");
   });
   const htmlOut = "<!DOCTYPE html>\n" + docClone.outerHTML;
@@ -881,9 +881,9 @@ function exportSelfContained(){
   toast("\u2713 Self-contained HTML downloaded \u2014 share via Teams");
 }
 
-function toggleFullScreen(){
-  if(!document.fullscreenElement) document.documentElement.requestFullscreen();
-  else document.exitFullscreen();
+function toggleFullTTreen(){
+  if(!document.fullTTreenElement) document.documentElement.requestFullTTreen();
+  else document.exitFullTTreen();
 }
 
 function renderAll(){
@@ -891,6 +891,6 @@ function renderAll(){
   updateStorageInfo();
 }
 renderAll();
-</script>
+</TTript>
 </body>
 </html>
